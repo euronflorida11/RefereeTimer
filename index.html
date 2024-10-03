@@ -1,1 +1,55 @@
-TEST
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[OOKINIES OFFICIAL] Quadball Referee Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="OQ-Navy.png" alt="Quadball Logo" class="logo"> <!-- ここに画像を追加 -->
+      <h1>[OQ] Quadball Referee Timer</h1>
+    </div>
+    
+    <!-- リアルタイムタイマー -->
+    <div class="timer-section">
+      <h2>リアルタイムタイマー</h2>
+      <div class="timer-and-buttons">
+        <div id="real-time">00:00:00</div>
+        <button id="start-real-time" class="dark-btn">開始</button>
+      </div>
+    </div>
+
+    <!-- ゲームタイマー -->
+    <div class="timer-section">
+      <h2>ゲームタイマー</h2>
+      <div class="timer-and-buttons">
+        <button id="decrease-time" class="dark-btn">-30秒</button>
+        <input type="text" id="game-time" value="00:00:00" class="editable-time">
+        <button id="increase-time" class="dark-btn">+30秒</button>
+      </div>
+      <div class="timer-and-buttons">
+        <button id="resume-game-time" class="dark-btn">再開</button>
+        <button id="pause-game-time" class="dark-btn">一時停止</button>
+      </div>
+    </div>
+
+    <!-- 違反カードボタン -->
+    <div class="card-buttons">
+      <button id="red-card" class="red-card-btn">レッドカード</button>
+      <button id="yellow-card" class="yellow-card-btn">イエローカード</button>
+      <button id="blue-card" class="blue-card-btn">ブルーカード</button>
+    </div>
+
+    <!-- タイマーリスト -->
+    <div id="timer-list" class="timer-list"></div>
+  </div>
+
+  <!-- 通知エリア -->
+  <div id="notification" class="notification hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

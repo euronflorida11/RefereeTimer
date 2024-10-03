@@ -1,0 +1,143 @@
+/* 全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E2A38;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    color: #F2F0F5;
+  }
+  
+  .container {
+    background-color: #2B3A4A;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;  /* 正方形のロゴ */
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  h1 {
+    color: #F2F0F5;
+    font-size: 1.3em;
+  }
+  
+  .timer-section {
+    margin-bottom: 15px;
+  }
+  
+  .timer-section h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #F2F0F5;
+  }
+  
+  .timer-and-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .timer-and-buttons button {
+    margin: 0 10px;
+  }
+  
+  .timer-and-buttons div, .timer-and-buttons input {
+    font-size: 2em;
+    margin: 5px;
+    color: #FF69B4;
+  }
+  
+  .editable-time {
+    font-size: 2em;
+    text-align: center;
+    color: #FF69B4;
+    background-color: #2B3A4A;
+    border: none;
+    width: 140px;
+  }
+  
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.9em;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .red-card-btn {
+    background-color: #FF4C4C;
+  }
+  
+  .yellow-card-btn {
+    background-color: #FFD700;
+  }
+  
+  .blue-card-btn {
+    background-color: #4682B4;
+  }
+  
+  .dark-btn {
+    background-color: #4A4A4A; /* 濃いグレー */
+    color: white;
+  }
+  
+  .timer-list {
+    margin-top: 20px;
+  }
+  
+  .timer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .timer-item input {
+    font-size: 0.8em;
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  
+  .notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FF69B4;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
