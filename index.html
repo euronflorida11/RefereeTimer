@@ -3,17 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[OOKINIES OFFICIAL] Quadball Referee Timer</title>
+  <title>Quadball Violation Timer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <div class="header">
       <img src="OQ-Navy.png" alt="Quadball Logo" class="logo"> <!-- ここに画像を追加 -->
-      <h1>[OQ] Quadball Referee Timer</h1>
+      <h1>Quadball Timer</h1>
     </div>
     
-    <!-- リアルタイムタイマー -->
+      <!-- スコアー -->    
+      <div class="score-section">
+        <div class="team">
+          <input type="text" id="my-team-name" value="チームA" class="team-name-input">
+          <div class="score-controls">
+            <button id="my-score-decrease" class="score-btn">-10</button>
+            <span id="my-score">0</span>
+            <button id="my-score-increase" class="score-btn">+10</button>
+          </div>
+        </div>
+        <div class="team">
+          <input type="text" id="opponent-team-name" value="チームB" class="team-name-input">
+          <div class="score-controls">
+            <button id="opponent-score-decrease" class="score-btn">-10</button>
+            <span id="opponent-score">0</span>
+            <button id="opponent-score-increase" class="score-btn">+10</button>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- リアルタイムタイマー -->
     <div class="timer-section">
       <h2>リアルタイムタイマー</h2>
       <div class="timer-and-buttons">

@@ -38,6 +38,50 @@ body {
     font-size: 1.3em;
   }
   
+  .score-section {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.team {
+  text-align: center;
+}
+
+.team-name-input {
+    background-color: #2B3A4A;
+    color: #F2F0F5;
+    border: none;
+    border-bottom: 2px solid #FF69B4;
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    width: 100px;
+}
+  
+.score-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-btn {
+  background-color: #4A4A4A;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.2em;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#my-score, #opponent-score {
+  font-size: 1.5em;
+  width: 40px;
+  display: inline-block;
+  text-align: center;
+}
+
   .timer-section {
     margin-bottom: 15px;
   }

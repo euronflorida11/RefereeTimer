@@ -12,6 +12,34 @@ let violationIntervals = [];
 let realTimeInterval;
 let realStartTime;
 
+let myScore = 0;
+let opponentScore = 0;
+
+document.getElementById('my-score-increase').addEventListener(startEvent, () => {
+  myScore += 10;
+  updateScores();
+});
+
+document.getElementById('my-score-decrease').addEventListener(startEvent, () => {
+  myScore = Math.max(0, myScore - 10); // スコアを0未満にしない
+  updateScores();
+});
+
+document.getElementById('opponent-score-increase').addEventListener(startEvent, () => {
+  opponentScore += 10;
+  updateScores();
+});
+
+document.getElementById('opponent-score-decrease').addEventListener(startEvent, () => {
+  opponentScore = Math.max(0, opponentScore - 10);
+  updateScores();
+});
+
+function updateScores() {
+  document.getElementById('my-score').textContent = myScore;
+  document.getElementById('opponent-score').textContent = opponentScore;
+}
+
 document.getElementById('start-real-time').addEventListener(startEvent, () => {
   // リアルタイムタイマーのスタート
   if (!realTimeInterval) {
@@ -76,19 +104,12 @@ function showNotification(message) {
 
 // 違反カードタイマーの追加
 document.getElementById('red-card').addEventListener(startEvent, () => addTimer('red', 120, 'レッドカード'));
-document.getElementById('yellow-card').addEventListener(startEvent, () => addTimer('yellow', 120, 'イエローカード'));
+document.getElementById('yellow-card').addEventListener(startEvent, () => addTimer('yellow', 60, 'イエローカード')); // イエローカードは1分
 document.getElementById('blue-card').addEventListener(startEvent, () => addTimer('blue', 60, 'ブルーカード'));
 
 function addTimer(type, duration, label) {
   const timerId = Date.now();
-  const inputField = `<input type="text" placeholder="背番号" class="small-input">`;
-  const timerElement = `
-    <div class="timer-item" id="timer-${timerId}">
-      ${inputField}
-      <div>${label}: <span id="time-${timerId}">${formatTime(duration)}</span></div>
-    </div>`;
-  
-  timers.push({ id: timerId, duration, label, remainingTime: duration });
+  timers.push({ id: timerId, duration, label, remainingTime: duration, playerNumber: "" }); // プレイヤー番号フィールドを追加
   renderTimers();
   startCountdown(timerId, duration);
 }
@@ -139,15 +160,24 @@ function renderTimers() {
   timerList.innerHTML = '';
 
   // 残り時間でソート
-  timers.sort((a, b) => a.duration - b.duration);
+  timers.sort((a, b) => a.remainingTime - b.remainingTime);
 
   timers.forEach(timer => {
-    const inputField = `<input type="text" placeholder="背番号" class="small-input">`;
+    const inputField = `<input type="text" value="${timer.playerNumber}" placeholder="背番号" class="small-input" id="player-${timer.id}">`;
     timerList.innerHTML += `
       <div class="timer-item" id="timer-${timer.id}">
         ${inputField}
         <div>${timer.label}: <span id="time-${timer.id}">${formatTime(timer.remainingTime)}</span></div>
       </div>`;
+
+    // イベントリスナーでプレイヤー番号の変更を監視し、変更を保存
+    document.getElementById(`player-${timer.id}`).addEventListener('input', (event) => {
+      const newPlayerNumber = event.target.value;
+      const timerIndex = timers.findIndex(t => t.id === timer.id);
+      if (timerIndex !== -1) {
+        timers[timerIndex].playerNumber = newPlayerNumber; // プレイヤー番号を保存
+      }
+    });
   });
 }
 
